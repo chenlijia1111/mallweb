@@ -98,6 +98,20 @@ public class SwaggerConf {
         return docket;
     }
 
+    /**
+     * 注入swagger配置
+     *
+     * @return
+     */
+    @Bean
+    public Docket createApiTest() {
+
+        Docket docket = initCreateDocket("/test/**", "测试接口");
+        docket.useDefaultResponseMessages(false);
+        createResponseMessage(docket);
+        return docket;
+    }
+
 
     /**
      * 设置返回值状态

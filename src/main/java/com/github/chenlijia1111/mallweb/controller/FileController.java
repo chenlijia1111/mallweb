@@ -42,7 +42,7 @@ public class FileController {
      */
     @PostMapping(value = "upload")
     @ResponseBody
-    @ApiOperation(value = "上传文件接口", notes = "返回文件下载地址,fileType: 文件类型  img/file;isfileName: 是否需要源文件名称")
+    @ApiOperation(value = "上传文件接口", notes = "返回文件下载地址,fileType: 文件类型  img/file;isFileName: 是否需要源文件名称")
     public Result uploadFile(@RequestParam(defaultValue = "img") String fileType, MultipartFile file,
                              @RequestParam(defaultValue = "false") boolean isFileName) {
         Result result = WebFileUtil.saveFile(file, fileType.equals("img") ? imgSavePath : fileSavePath, "system/downLoad", isFileName, fileType);
